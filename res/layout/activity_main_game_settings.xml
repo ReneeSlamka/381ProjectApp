@@ -1,0 +1,123 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/androidbg"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ece381.MainGameSettings" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setuppage_title1"
+        android:textSize="30sp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp" />
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:text="@string/setuppage_titlename"
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:paddingBottom="10dp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="50dp"
+        android:paddingRight="100dp"
+        android:paddingLeft="20dp" >
+
+        <EditText
+            android:id="@+id/PlayerField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/setuppage_fieldname"
+            android:inputType="textCapWords"
+            android:maxLength="12"
+            android:maxLines="1" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:text="@string/setuppage_titlelobby"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="100dp"
+        android:paddingBottom="50dp">
+
+	    <EditText
+	        android:id="@+id/editText1"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:ems="10"
+	        android:hint="@string/setuppage_fieldlobby"
+	        android:inputType="textCapWords"
+	        android:maxLength="12"
+	        android:maxLines="1" />
+    
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of Players:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingLeft="20dp"
+        android:paddingBottom="10dp" />
+
+	<LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp" 
+        android:paddingRight="300dp" 
+        android:paddingBottom="50dp">
+	    
+	    <Spinner
+	        android:id="@+id/player_spinner"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" />
+	    
+    </LinearLayout>
+
+	<LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp" 
+        android:paddingBottom="50dp">
+	    <Button
+	        android:id="@+id/button1"
+	        android:layout_width="170dp"
+	        android:layout_height="70dp"
+	        android:paddingBottom="20dp"
+	        android:background="@drawable/playcustom"
+	        android:onClick="goToGameplay" />
+	</LinearLayout>    
+
+</LinearLayout>

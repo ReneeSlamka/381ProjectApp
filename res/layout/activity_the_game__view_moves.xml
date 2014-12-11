@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/androidbg"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ece381.TheGame_ViewMoves" >
+    
+        
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="60dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="40dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="@string/view_game_sequence_msg"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+			
+        <!--start top row of coloured buttons-->
+	        <LinearLayout 
+			    android:orientation="horizontal"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_gravity="center"
+			    android:paddingTop="40dp">
+	            
+	            <!--start top left button (yellow)-->
+		            <ImageView
+		                android:id="@+id/imageViewTL"
+		                android:layout_width="230dp"
+		        		android:layout_height="230dp"
+		        		android:background="@drawable/yellow3d"
+		                android:layout_marginLeft="0dp"
+		                android:contentDescription="@string/yellowbutton" >    
+		            </ImageView>
+		            
+	            <!--end top left button (yellow)-->
+	             <!--start top left button (blue)-->
+		            
+		             <ImageView
+		                android:id="@+id/imageViewTR"
+		                android:layout_width="230dp"
+		        		android:layout_height="230dp"
+		                android:layout_marginLeft="0dp" 
+		                android:background="@drawable/blue3d"
+		                android:contentDescription="@string/bluebutton" >    
+		            </ImageView>
+		             
+		        <!--end top right button (blue)-->
+             
+        </LinearLayout>
+        <!--end top row of coloured buttons -->
+        
+		
+        <!--start bottom row of coloured buttons-->
+        <LinearLayout 
+		    android:orientation="horizontal"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:paddingBottom="20dp">
+	    	
+            <!--start top left button (red)-->
+	             <ImageView
+	                android:id="@+id/imageViewBL"
+	                android:layout_width="230dp"
+		        	android:layout_height="230dp"
+	                android:layout_marginLeft="0dp" 
+	                android:background="@drawable/red3d"
+	                android:contentDescription="@string/redbutton" >    
+	            </ImageView> 
+	            
+	        <!--end top right button (red)-->  
+            
+            <!--start top left button (green)-->
+	            
+	             <ImageView
+	                android:id="@+id/imageViewBR"
+	                android:layout_width="230dp"
+		        		android:layout_height="230dp"
+	                android:layout_marginLeft="0dp" 
+	                android:background="@drawable/green3d"
+	                android:contentDescription="@string/greenbutton" >    
+	            </ImageView>
+	            
+      
+            <!--end top right button (green)-->
+                     
+         </LinearLayout>
+        
+  
+</LinearLayout>

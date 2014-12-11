@@ -1,0 +1,163 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/androidbg"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ece381.TheGame_ViewMoves" >
+    
+        
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/view_game_sequence_msg"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <View
+		    android:layout_width="match_parent"
+		    android:layout_height="5dp" />
+			
+        <!--start top row of coloured buttons-->
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+		        android:layout_marginLeft="5dp"
+		        android:layout_marginRight="5dp"
+		        android:layout_marginTop="25dp"
+	            android:orientation="horizontal" >
+	            
+	            <!--start top left button (yellow)-->
+	            <RelativeLayout
+	                android:layout_width="119dp"
+		            android:layout_height="124dp"
+		            android:layout_marginLeft="0dp" >
+
+		            
+		            <ImageView
+		                android:id="@+id/imageViewTL"
+		                android:layout_width="119dp"
+		                android:layout_height="124dp"
+		                android:layout_marginLeft="0dp" 
+		                android:background="@drawable/yellowbutton"
+		                android:contentDescription="@string/yellowbutton" >    
+		            </ImageView>
+		            
+	            </RelativeLayout>
+	            <!--end top left button (yellow)-->
+         
+		         
+	             <View
+			        android:layout_width="20dp"
+			        android:layout_height="124dp" />
+	             
+	             <!--start top left button (blue)-->
+	             <RelativeLayout
+	                android:layout_width="119dp"
+		            android:layout_height="124dp"
+		            android:layout_marginLeft="0dp" >
+             
+		            
+		             <ImageView
+		                android:id="@+id/imageViewTR"
+		                android:layout_width="119dp"
+		                android:layout_height="124dp"
+		                android:layout_marginLeft="0dp" 
+		                android:background="@drawable/bluebutton"
+		                android:contentDescription="@string/bluebutton" >    
+		            </ImageView>
+		            
+		        </RelativeLayout>
+		        <!--end top right button (blue)-->
+            
+        </LinearLayout>
+        <!--end top row of coloured buttons -->
+        
+        <View
+		    android:layout_width="match_parent"
+		    android:layout_height="5dp" />
+		
+        <!--start bottom row of coloured buttons-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginRight="5dp"
+	        android:layout_marginTop="25dp"
+            android:orientation="horizontal" >
+	    	
+            <!--start top left button (red)-->
+            <RelativeLayout
+	           android:layout_width="119dp"
+		       android:layout_height="124dp"
+		       android:layout_marginLeft="0dp" >
+             
+	             <ImageView
+	                android:id="@+id/imageViewBL"
+	                android:layout_width="119dp"
+	                android:layout_height="124dp"
+	                android:layout_marginLeft="0dp" 
+	                android:background="@drawable/redbutton"
+	                android:contentDescription="@string/redbutton" >    
+	            </ImageView> 
+	            
+	        </RelativeLayout> 
+	        <!--end top right button (red)-->    
+            
+            <View
+		        android:layout_width="20dp"
+		        android:layout_height="124dp" />
+            
+            <!--start top left button (green)-->
+            <RelativeLayout
+	           android:layout_width="119dp"
+		       android:layout_height="124dp"
+		       android:layout_marginLeft="0dp" >
+	            
+	             <ImageView
+	                android:id="@+id/imageViewBR"
+	                android:layout_width="119dp"
+	                android:layout_height="124dp"
+	                android:layout_marginLeft="0dp" 
+	                android:background="@drawable/greenbutton"
+	                android:contentDescription="@string/greenbutton" >    
+	            </ImageView>
+	            
+            </RelativeLayout> 
+            <!--end top right button (green)-->
+                     
+         </LinearLayout>
+        
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginRight="5dp"
+	        android:layout_marginTop="25dp"
+            android:orientation="horizontal" >
+
+	        <Button
+	            android:id="@+id/show_seq"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/start_view" />
+	        
+	         <View
+			    android:layout_width="20dp"
+			    android:layout_height="124dp" />
+	
+	        <Button
+	            android:id="@+id/button2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/repeat_seq"
+	            android:onClick="flipByClick" />
+        
+        </LinearLayout>
+  
+</LinearLayout>

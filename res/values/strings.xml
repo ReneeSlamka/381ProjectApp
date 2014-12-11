@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ece381</string>
+    <string name="label_ip">IP:</string>
+    <string name="playsong">Play Song</string>
+    <string name="label_port">Port:</string>
+    <string name="printsong">Print Song on Debug</string>
+    <string name="connect">Connect</string>
+    <string name="clear">Clear</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="label_myip">My IP:</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="refresh_socket">Show Sock.</string>
+    <string name="title_activity_game">Game</string>
+    <string name="title_activity_the_game">Game</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="yellow">Yellow</string>
+    <string name="blue">Blue</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="send">Send Attempt</string>
+    <string name="joinpage_fieldname">Player</string>
+    <string name="title_activity_main_game_settings">MainGameSettings</string>
+    <string name="title_activity_join_game__input_name">JoinGame_InputName</string>
+    <string name="title_activity_listof_gips">ListofGIPS</string>
+    <string name="title_activity_player_sync">PlayerSync</string>
+    <string name="welcomepage_title1">Welcome to Telephone!</string>
+    <string name="welcomepage_title2">What would you like to do?</string>
+    <string name="welcomepage_createbutton">Create New Game</string>
+    <string name="welcomepage_joinbutton">Join Existing Game</string>
+    <string name="welcomepage_exitbutton">Exit Game</string>
+    <string name="setuppage_title1">Enter the following:</string>
+    <string name="setuppage_titlename">Your player name:</string>
+    <string name="setuppage_fieldname">Player</string>
+    <string name="setuppage_titlelobby">Game lobby name:</string>
+    <string name="setuppage_fieldlobby">Default</string>
+    <string name="setuppage_titleplayers">Maximum players:</string>
+    <string name="setuppage_createbutton">Create Game</string>
+    <string name="title_activity_join_game__ipname">JoinGame_IPName</string>
+    <string name="continue_button">Continue</string>
+    <string name="get_user_name">Enter your name:</string>
+    <string name="title_activity_gameplay">Gameplay</string>
+    <string name="telephone_picture"></string>
+    <string name="title_activity_intro">Intro</string>
+    <string name="title_activity_the_game__view_moves">TheGame_ViewMoves</string>
+    <string name="view_sequence">View Sequence</string>
+    <string name="start_view">Start View</string>
+    <string name="repeat_seq">Repeat Sequence</string>
+    <string name="redbutton">redButton</string>
+    <string name="bluebutton">blueButton</string>
+    <string name="greenbutton">greenButton</string>
+    <string name="yellowbutton">yellowButton</string>
+    <string name="view_game_sequence_msg">Now showing sequence, watch carefully!</string>
+    <string name="thegame_player_title">Players: </string>
+    <string name="joinpage_lobbytitle">Open Lobbies: </string>
+
+</resources>

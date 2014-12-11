@@ -1,0 +1,205 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/appbg"
+    android:orientation="vertical" >
+	
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:src="@drawable/gettingconnected"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        android:contentDescription="getting connected"
+        android:paddingTop="20dp" >
+        
+    </ImageView>
+    
+	<!--connect instructions -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:paddingBottom="30dp" >
+        
+    	<TextView
+    	    android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="To play enter the given Middle Man IP address and click 'Connect'" />		  	  	
+        
+    </LinearLayout>
+    
+    
+     <!-- IP address slot -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="25dp"
+        android:paddingRight="75dp"
+        android:paddingBottom="30dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/label_ip" />
+
+        <EditText
+            android:id="@+id/ip1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.05"
+            android:inputType="number"
+            android:text="128" />
+
+        <EditText
+            android:id="@+id/ip2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.05"
+            android:inputType="number"
+            android:text="189" />
+
+        <EditText
+            android:id="@+id/ip3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.05"
+            android:inputType="number"
+            android:text="222" />
+
+        <EditText
+            android:id="@+id/ip4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.05"
+            android:inputType="number"
+            android:text="100" />
+
+    </LinearLayout>
+     <requestFocus />
+	
+    <!--connect/disconnect buttons --> 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="110dp"
+        android:paddingRight="110dp" 
+        android:paddingBottom="20dp" >
+        
+        <Button
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.45"
+	        android:onClick="openSocket"
+	        android:background="@drawable/connectcustom"
+	         />
+         <View 
+	        android:layout_width="0dp"
+	        android:layout_weight="0.1"
+	        android:layout_height="match_parent" />
+
+	    <Button
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.45"
+	        android:onClick="closeSocket"
+	        android:background="@drawable/disconnectcustom" />
+
+    </LinearLayout>
+
+    <!-- error message box -->    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="40dp"
+        android:paddingRight="80dp"
+        android:paddingBottom="10dp" >
+	    
+	    <TextView
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.15"
+	        android:textSize="20sp"
+	        android:gravity="left"
+	        android:text="Errors:" />
+	    
+	    <EditText
+	        android:id="@+id/error_message_box"
+	        android:layout_width="0dp"
+	        android:layout_weight="0.90"
+	        android:layout_height="wrap_content"
+	        android:ems="10"
+        	android:inputType="number" />
+	    
+    </LinearLayout>
+    
+     <!--instructions to play-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:paddingBottom="10dp" >
+   
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:text="Once connected confirmed 'Continue' to proceed to game settings" />
+    
+    </LinearLayout>
+    
+    <!--another image-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="30dp"
+        android:paddingLeft="150dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="40dp" >
+	    
+        <ImageView
+	        android:layout_width="300dp"
+	        android:layout_height="300dp"
+	        android:gravity="center"
+	        android:src="@drawable/pic1"
+	        android:contentDescription="telegame" >
+	     
+	    </ImageView>
+	    
+    </LinearLayout>   
+    
+    <!--play button-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="195dp"
+        android:paddingRight="170dp"
+        android:paddingBottom="5dp" >
+
+	    <Button
+	        android:layout_width="200dp"
+	        android:layout_height="80dp"
+	        android:onClick="goToCreateGame"
+	        android:background="@drawable/continuecustom" />
+	    
+    </LinearLayout>
+
+
+</LinearLayout>
