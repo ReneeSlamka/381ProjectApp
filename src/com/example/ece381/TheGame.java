@@ -32,101 +32,34 @@ public class TheGame extends Activity {
 	//strings to be sent to middleman and view sequence page
 	String msg = "";
 	String message = "";
-	
-	//Brandon new code
+
 	String mManResponse_copy = "abcd";
 	
 	public final static String EXTRA_MESSAGE = "final String";
-	
-	
-	//Brandon's code, for making sound
-	/*private Button yellow, blue, red, green;
-	private SoundPool spool;
-	private int soundID;*/
-	
-	//Brandon's code for speech input
 	protected static final int REQUEST_OK = 1;
 	private ImageButton speechButton;
 	private TextView speechText;
 	
 	TextView LobbyLeader; 
-	
-	//New code
 	Intent sendSeqIntent;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		//NEW PRECAUTION CODE 
 		msg = "";
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_the_game);
-		
-		//LobbyLeader = (TextView)findViewById(R.id.lobbyleader);
-		//LobbyLeader.setText(getIntent().getExtras().getString("LobbyLeader"));
-		
-		//Brandon's code for speech input--------------------------------
-		/*speechText = (TextView) findViewById(R.id.speechToText1);
-        speechButton = (ImageButton) findViewById(R.id.button2);
-        speechButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
-                try {
-                    startActivityForResult(intent, REQUEST_OK);
-                    speechText.setText("");
-                } catch (ActivityNotFoundException a) {
-                    Toast error = Toast.makeText(getApplicationContext(),
-                            "Opps! Your device doesn't support Speech to Text",
-                            Toast.LENGTH_SHORT);
-                    error.show();
-                }
-            }
-        });*/
-        //End of Brandon's code for speech input-----------------------------
-		
 
-		// code previously in MainActivity that sets up a timer
-		// task that reads the input queue from middleman
-		// every 500 ms 3000ms after it's started
 		TCPReadTimerTask tcp_task = new TCPReadTimerTask();
 		Timer tcp_timer = new Timer();
 		tcp_timer.schedule(tcp_task, 3000, 500);
 		
-		//Code to protect against null value in intent to ViewSequence
-		//REMEMBER YOU DO THIS
 		message = "X";
 		sendSeqIntent = new Intent(this, TheGame_ViewMoves.class);
 		sendSeqIntent.putExtra(EXTRA_MESSAGE, message);
-		
-		
-		//COME BACK TO THIS AFTER
-		
-		//****commented out sound because crashes app atm****
-		 /*this.setVolumeControlStream(AudioManager.STREAM_MUSIC); spool = new
-		 SoundPool(10, AudioManager.STREAM_MUSIC, 0); soundID =
-		 spool.load(this, R.raw.coloured_button, 1);
-		
-		 yellow = (Button)findViewById(R.id.topleftButton);
-		 yellow.setOnClickListener(new View.OnClickListener() { public void
-		 onClick(View v) { btnSound(); } });
-		 
-		 blue = (Button)findViewById(R.id.topRightButton);
-		 blue.setOnClickListener(new View.OnClickListener() { public void
-		 onClick(View v) { btnSound(); } });
-		 
-		 red = (Button)findViewById(R.id.bottomLeftButton);
-		 red.setOnClickListener(new View.OnClickListener() { public void
-		 onClick(View v) { btnSound(); } });
-		 
-		 green = (Button)findViewById(R.id.bottomRightButton);
-		 green.setOnClickListener(new View.OnClickListener() { public void
-		 onClick(View v) { btnSound(); } });*/
 		 
 	}
 
-	
-	// premade functions --> leave these as defaults for now--------------------------
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -145,8 +78,6 @@ public class TheGame extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	// end of premade functions ------------------------------------------------------
-	
 	
 	//function that asks user to confirm they want to leave if 
 	//press back button
@@ -200,15 +131,6 @@ public class TheGame extends Activity {
 
 	}
 
-	/*public void btnSound() {
-		AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
-		float volume = (float) audioManager
-				.getStreamVolume(AudioManager.STREAM_MUSIC);
-		spool.play(soundID, volume, volume, 1, 0, 1f);
-	};*/
-	// -----------end of buton click operations---------------------------------------------------
-	
-	//
 	public void sendAttempt(View view) {
 		
 		MyApplication app = (MyApplication) getApplication();
@@ -233,8 +155,6 @@ public class TheGame extends Activity {
 		msg = "";
 	}
 
-	// code copied from MainActivity of second middleman tutorial project
-	//receives MM response
 	public class TCPReadTimerTask extends TimerTask {
 		public void run() {
 			MyApplication app = (MyApplication) getApplication();
@@ -265,9 +185,9 @@ public class TheGame extends Activity {
 								Context gameplay_context = getApplicationContext();
 								CharSequence gameResult;
 								int duration = Toast.LENGTH_LONG;
-								// String gameResult;
+							
 								Log.i("SendAttempt", mManResponse);
-								//REFACTOR
+								
 								if ((mManResponse.endsWith("wrong")) || (mManResponse.endsWith("You Won")) || 
 								(mManResponse.endsWith("Your Turn"))){
 									//ignore this message, not the sequence
@@ -281,17 +201,14 @@ public class TheGame extends Activity {
 									gameResult = mManResponse;
 											
 								}
-								//should maybe create intent with message in onCreate just in case
+								
 								if(sendSeqIntent.getExtras() != null){
 									String clearExtra = sendSeqIntent.getStringExtra(EXTRA_MESSAGE);
 									sendSeqIntent.removeExtra(clearExtra);
 									sendSeqIntent.putExtra(EXTRA_MESSAGE, message);
-								} else{ //IF IS NULL (MAY NEED TO REMOVE)
+								} else{ 
 									sendSeqIntent.putExtra(EXTRA_MESSAGE, message);
 								}
-								
-								//Brandon's timer code
-								//end of timer code
 								
 								//show MM response on screen in toast for debugging
 								Toast showResult = Toast.makeText(
@@ -307,30 +224,4 @@ public class TheGame extends Activity {
 			}
 		}
 	} 
-	
-	/*@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-        case REQUEST_OK: {
-            if (resultCode == RESULT_OK && null != data) {
-                ArrayList<String> text = data
-                        .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                speechText.setText(text.get(0));
-                
-                if (text.get(0).equals("yellow")){
-                	msg = msg.concat("Y");
-                } else if ((text.get(0).equals("blue")) || (text.get(0).equals("hello"))){
-                	msg = msg.concat("B");
-                } else if ((text.get(0).equals("green")) || (text.get(0).equals("screen"))){
-                	msg = msg.concat("G");
-                } else if (text.get(0).equals("red")){ //equals "R"?
-                	msg = msg.concat("R");
-                }
-                Log.i("Voice Message", message);
-            }
-            break;
-        }
-        }
-    }*/
 }
