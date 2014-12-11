@@ -39,7 +39,6 @@ public class TheGame_ViewMoves extends Activity{
 	private List<AnimationDrawable> animationList = new ArrayList<AnimationDrawable>();
 	private Timer animationTimer;
 	private int viewOnceFlag = 0;
-	private Timer getUpdatesTimer;
 	private Timer countDownTimer;
 	private String latestMMReply;
 	private int turnTrigger;
@@ -61,12 +60,8 @@ public class TheGame_ViewMoves extends Activity{
 		Log.i("ReceivedSequence", sequence);
 		
 		//timer stuff for notifications from MiddleMan
-		getUpdatesTimer = new Timer();
 		turnTrigger = 0;
 		latestMMReply = "";
-		//using TimerTask class from TheGame that receives MiddleMan messages 
-		//TCPCheckforUpdates getUpdates  = new TCPCheckforUpdates();
-		//getUpdatesTimer.schedule(getUpdates, 3000, 500);
 		
 		//flag that ensures can only view animation ONCE
 		viewOnceFlag = 0;
@@ -99,40 +94,17 @@ public class TheGame_ViewMoves extends Activity{
 					animationList.add(trAnim);
 				}else if (sequence.charAt(i) == 'R') {
 					animationList.add(blAnim);	
-				}else if (sequence.charAt(i) == 'G') {//char is 'G'
+				}else if (sequence.charAt(i) == 'G') {
 					animationList.add(brAnim);
 				}else {
 					//don't add anything, stray string slipped through thegame filter
 				}
 			}	
 		}
-		countDown = 3000 + (800)*(sequence.length()) + (500)*((sequence.length())-1) + 3000; //added extra 3 seconds as precaution
+		countDown = 3000 + (800)*(sequence.length()) + (500)*((sequence.length())-1) + 3000; 
 		Log.i("TotalTime", Integer.toString(countDown));
 		counter = 0;
-		//countDownTimer = new Timer(); 
-        MyTimerTask switchingActTask = new MyTimerTask(); 
         Log.i("CountDownCount", Integer.toString(countDown));
-        //countDownTimer.schedule(switchingActTask, countDown, 3000);//1000);
-		//Log.i("AnimationSequence", animationList.toString());
-		//create show sequence button that activates sequence animation on click
-
-	}
-	
-	public class MyTimerTask extends TimerTask {
-		
-		public void run() {
-		     
-				/*runOnUiThread(new Runnable() { 
-					public void run() {
-				
-					}  
-				});	*/
-					/*Log.i("CountDownCount", Integer.toString(counter));
-			        Intent switchpage = new Intent(TheGame_ViewMoves.this, TheGame.class);
-			        TheGame_ViewMoves.this.startActivity(switchpage);
-			        countDownTimer.cancel();*/
-			        
-			}
 	}
 	
 	public class AnimationTimerTask extends TimerTask{
@@ -149,9 +121,9 @@ public class TheGame_ViewMoves extends Activity{
 				}
 			});
 			while(animationList.get(animCount).getCurrent() !=  animationList.get(animCount).getFrame(2)){
-				//wait until reaches last frame to stop it
+				//wait until reaches last frame to stop animation
 			}
-			//lose about 200 seconds on last frame of animation here, but shouldn't matter
+			
 			animationList.get(animCount).stop();
 			Log.i("AnimationCountConfirmPrev", Integer.toString(animCount));
 			if (animCount < (animationList.size() - 1)){
@@ -165,8 +137,6 @@ public class TheGame_ViewMoves extends Activity{
 		}
 	}
 	
-	// code copied from MainActivity of second middleman tutorial project	
-	
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
@@ -175,15 +145,8 @@ public class TheGame_ViewMoves extends Activity{
 				//timer for running animation
 				animationTimer = new Timer();
 				AnimationTimerTask animTask = new AnimationTimerTask();
-				animationTimer.schedule(animTask, 2000, 1500); //was (1500)5000 and 4000
-				
-				//countdown timer for switching activity when anim done
-				/*Log.i("CountDownCount", Integer.toString(countDown));
-				countDownTimer = new Timer(); 
-		        MyTimerTask switchingActTask = new MyTimerTask(); 
-		        countDownTimer.schedule(switchingActTask, countDown, 3000);*/
-				
-			} //else do nothing
+				animationTimer.schedule(animTask, 2000, 1500); 
+			} 	//else do nothing
 			
 		}
 	}
